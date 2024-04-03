@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
+    <link rel="manifest" href="./assets/img/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+    type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+    type="text/javascript" charset="utf-8"></script>
+    <title>Fulltime - Logística</title>
+</head>
+<body class="body">
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-2">
+                    <a href="" class="header__logo">
+                        <img class="header__icon" src="./assets/img/logo.png" alt="Logo Fulltime">
+                    </a>
+                </div>
+                <div class="col-10">
+                    <nav class="header__nav">
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <button type="button" class="nav__btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Cadastrar entrega
+                                </button>
+                            </li>
+                            <li class="nav__item">
+                                <a href="" class="nav__btn">
+                                    Clientes
+                                </a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="" class="nav__btn">
+                                    Rotas
+                                </a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="" class="nav__btn">
+                                    Contato
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cadastrar</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="bi bi-x-circle"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="index__register">
+                    <div class="form__input-box">
+                        <label class="form__label" for="estado">Origem:</label>
+                        <select class="form__select estado" onchange="carregarCidadesOrigem(this)" required>
+                            <option value="">Selecione um estado</option>
+                        </select>
+                        <select class="form__select cidade__origem" required>
+                            <option value="">Selecione uma cidade</option>
+                        </select>
+                    </div>
+                    <div class="form__input-box">
+                        <label class="form__label" for="estado">Destino:</label>
+                        <select class="form__select estado" onchange="carregarCidadesDestino(this)" required>
+                            <option value="">Selecione um estado</option>
+                        </select>
+                        <select class="form__select cidade__destino" required>
+                            <option value="">Selecione uma cidade</option>
+                        </select>
+                    </div>
+                    <div class="form__input-box">
+                        <label class="form__label" for="estado">Data e hora:</label required>
+                        <input class="form__input" type="datetime-local">
+                    </div>
+                    <div class="form__input-box">
+                        <label class="form__label" for="estado">Local:</label required>
+                        <input class="form__input" type="text" placeholder="Digite o local">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary" onclick="saveFormData()">Cadastrar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="index__map">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div id="mapContainer" class="mapContainer" style="width: 640px; height: 480px">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h3 class="index__route-title">
+                        Próximas Entregas
+                    </h3>
+                    <div id="container" class="row index__routes-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="index__bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-6 index__bottom-left">
+                    <img src="./assets/img/truck-index.png" alt="">
+                </div>
+                <div class="col-6 index__bottom-right">
+                    <h2 class="index__bottom-title">
+                        Conectando destinos com eficiência e precisão, nosso sistema de entregas inteligentes otimiza rotas e utiliza a tecnologia para garantir que suas encomendas cheguem no momento certo!
+                    </h2>
+                    <p class="index__bottom-text">Este sistema de entregas inteligentes utiliza algoritmos avançados para calcular as rotas mais eficientes, levando em consideração variáveis como tráfego, condições climáticas e demanda. Integra também tecnologias como rastreamento em tempo real e análise de dados para oferecer um serviço de entrega rápido, confiável e adaptável às necessidades dos clientes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="index__parceiros">
+        <div class="container">
+            <h2 class="index__parceiros-title">Parceiros</h2>
+            <div class="row align-items-center">
+                <div class="col-4">
+                    <div class="index__parceiro-box">
+                        <img class="index__parceiro-img" src="./assets/img/parceiro-1.jpeg" alt="">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="index__parceiro-box">
+                        <img class="index__parceiro-img" src="./assets/img/parceiro-2.png" alt="">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="index__parceiro-box">
+                        <img class="index__parceiro-img" src="./assets/img/parceiro-3.png" alt="">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="index__parceiro-box">
+                        <img class="index__parceiro-img" src="./assets/img/parceiro-4.jpeg" alt="">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="index__parceiro-box">
+                        <img class="index__parceiro-img" src="./assets/img/parceiro-5.png" alt="">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="index__parceiro-box">
+                        <img class="index__parceiro-img" src="./assets/img/parceiro-6.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <img class="footer__logo" src="./assets/img/icon.png" alt="">
+                </div>
+                <div class="col-12">
+                    <p class="footer__copyright">Todos os direitos reservados</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./assets/js/main.js"></script>
+
+</html>

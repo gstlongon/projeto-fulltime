@@ -1,0 +1,159 @@
+{
+    "trajetos": [
+        {
+            "origem": {
+                "nome_cidade": "São Paulo",
+                "latitude": -23.5505,
+                "longitude": -46.6333
+            },
+            "destino": {
+                "nome_cidade": "Campinas",
+                "latitude": -22.9071,
+                "longitude": -47.0633
+            },
+            "empresa": "Casas Bahia",
+            "horario": "08:00",
+            "data": "20/03"
+
+        },
+        {
+            "origem": {
+                "nome_cidade": "São Paulo",
+                "latitude": -23.5505,
+                "longitude": -46.6333
+            },
+            "destino": {
+                "nome_cidade": "Sorocaba",
+                "latitude": -23.5015,
+                "longitude": -47.4521
+            },
+            "empresa": "Magazine Luiza",
+            "horario": "10:00",
+            "data": "22/03"
+        },
+        {
+            "origem": {
+                "nome_cidade": "Campinas",
+                "latitude": -22.9071,
+                "longitude": -47.0633
+            },
+            "destino": {
+                "nome_cidade": "Ribeirão Preto",
+                "latitude": -21.1767,
+                "longitude": -47.8208
+            },
+            "empresa": "Lojas Pernambucanas",
+            "horario": "12:00",
+            "data": "22/03"
+
+        },
+        {
+            "origem": {
+                "nome_cidade": "Sorocaba",
+                "latitude": -23.5015,
+                "longitude": -47.4521
+            },
+            "destino": {
+                "nome_cidade": "São José dos Campos",
+                "latitude": -23.2237,
+                "longitude": -45.9009
+            },
+            "empresa": "Lojas Americanas",
+            "horario": "14:00",
+            "data": "22/03"
+
+        },
+        {
+            "origem": {
+                "nome_cidade": "Ribeirão Preto",
+                "latitude": -21.1767,
+                "longitude": -47.8208
+            },
+            "destino": {
+                "nome_cidade": "Franca",
+                "latitude": -20.5386,
+                "longitude": -47.4009
+            },
+            "empresa": "Samsung",
+            "horario": "16:00",
+            "data": "24/03"
+
+        },
+        {
+            "origem": {
+                "nome_cidade": "Campinas",
+                "latitude": -22.9071,
+                "longitude": -47.0633
+            },
+            "destino": {
+                "nome_cidade": "Curitiba",
+                "latitude": -25.4296,
+                "longitude": -49.2719
+            },
+            "empresa": "RiHappy",
+            "horario": "09:30",
+            "data": "26/03"
+        },
+        {
+            "origem": {
+                "nome_cidade": "Ribeirão Preto",
+                "latitude": -21.1767,
+                "longitude": -47.8208
+            },
+            "destino": {
+                "nome_cidade": "Porto Alegre",
+                "latitude": -30.0346,
+                "longitude": -51.2177
+            },
+            "empresa": "C&a",
+            "horario": "11:30",
+            "data": "27/03"
+
+        },
+        {
+            "origem": {
+                "nome_cidade": "Santos",
+                "latitude": -23.9544,
+                "longitude": -46.3336
+            },
+            "destino": {
+                "nome_cidade": "Santo André",
+                "latitude": -23.6737,
+                "longitude": -46.5436
+            },
+            "empresa": "De Mulher pra Mulher Mariso",
+            "horario": "13:30",
+            "data": "27/04"
+        },
+        {
+            "origem": {
+                "nome_cidade": "Sorocaba",
+                "latitude": -23.5505,
+                "longitude": -47.4116
+            },
+            "destino": {
+                "nome_cidade": "São Caetano do Sul",
+                "latitude": -23.6237,
+                "longitude": -46.5513
+            },
+            "empresa": "Rennor",
+            "horario": "15:30",
+            "data": "21/03"
+        },
+        {
+            "origem": {
+                "nome_cidade": "Bauru",
+                "latitude": -22.3149,
+                "longitude": -49.0616
+            },
+            "destino": {
+                "nome_cidade": "Mauá",
+                "latitude": -23.6677,
+                "longitude": -46.4619
+            },
+            "empresa": "Zaro",
+            "horario": "17:30",
+            "data": "21/03"
+        }
+    ]
+}
